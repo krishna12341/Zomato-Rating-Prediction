@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zomato Rating prediction</title>
+    <center><h1>Zomato Rating Prediction App</h1></center>
+    <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/style.css')}}">
+
+</head>
+<body>
+
+   <style>
+    h1
+    {
+       color:black;
+       background-color:white;
+       font-style:italic;
+       width:450px;
+       height:45px;
+       border: 1px solid green;
+       border: 5px solid red;
+       border-radius: 25px;
+       }
+   div.p
+   {
+       width: 400px;
+       height: 150px;
+       border: 1px solid green;
+       color:#8A2BE2;
+       font-style:italic;
+       font-weight:bolder;
+       background-color:#FFEBCD;
+       background-size-cover;
+       font-size:20px;
+       border: 5px solid red;
+       border-radius: 25px;
+       }
+   div.login
+   {
+       width: 400px;
+       height: 400px;
+       border: 1px solid green;
+       color:#8A2BE2;
+       font-style:italic;
+       font-weight:bolder;
+       font-size:20px;
+       border: 5px solid red;
+       border-radius: 25px;
+       }
+
+       div.login{
+       background-color:#FFEBCD;
+       background-size-cover;
+       }
+   body {
+       background-image:url('static/Zomatok.jpg');
+       background-repeat: no-repeat;
+       background-size: cover;
+       }
+  p {
+  color:darkred;
+    }
+   </style>
+<p> <b>About App:</b></p>
+<div class="p">
+    <p>This is Prediction App which gives us Zomato Restaurent rating if user will give us correct input.This App will
+    help the user to know which restaurent is ,giving best facility and quality to the costumer</p>
+</div>
+   <center>
+<div class ='login'>
+
+        <h2 style="color:Violet;">Rate Testing Form</h2>
+        <form action='/result' method='POST'>
+         <label for="online_order">online_order</label>
+         <select id="mytextbox1" name = "online_order"  required="required">
+             <option value="0">No</option>
+             <option value="1">Yes</option>
+         </select>
+            <br>
+
+            <label for="book_table">book_table</label>
+         <select id="mytextbox1" name ="book_table"  required="required">
+             <option value="0">NO</option>
+             <option value="1">Yes</option>
+         </select>
+            <br>
+
+             <label for="votes">Votes</label>
+             <input type="text" id="mytextbox1" name ='votes' PLACEHOLDER="votes"  required="required">
+            <br>
+            <label for="location">Location</label>
+            <select id="mytextbox1" name = "location"  required="required">
+             <option value="0">BTM</option>
+             <option value="1">Banashankar</option>
+             <option value="2">Banaswadi</option>
+             <option value="3">Bannerghatta Road</option>
+             <option value="4">Basavanagudi</option>
+             <option value="5">Bellandur</option>
+             <option value="6">Brigade Road</option>
+             <option value="7">Brookerfield</option>
+             <option value="8">Church Street</option>
+             <option value="9"> Commercial Street</option>
+             <option value="10">Cunningham Road</option>
+             <option value="11">Domlur</option>
+             <option value="12">Ejipura</option>
+             <option value="13">Electronic City</option>
+             <option value="14">Frazer Town</option>
+             <option value="15">HSR</option>
+             <option value="16">Indiranagar</option>
+             <option value="17">JP Nagar</option>
+             <option value="18">jayanagar</option>
+             <option value="19">Kalyan nagar</option>
+             <option value="20">Kammanahalli</option>
+             <option value="21">Koramangala 1st Block</option>
+             <option value="22">Koramangala 4th Block</option>
+             <option value="23">Koramangala 5th Block</option>
+             <option value="24">Koramangala 6th Block</option>
+             <option value="25">Koramangala 7th Block</option>
+             <option value="26">Lavelle Road</option>
+             <option value="27">MG Road</option>
+             <option value="28">Malleshwaram</option>
+             <option value="29">Marathahalli</option>
+             <option value="30">New Bel Road</option>
+             <option value="31">Old Airport Road</option>
+             <option value="32">Rajajinagar</option>
+             <option value="33">Residency road</option>
+             <option value="34">Richmond Road</option>
+             <option value="35">sarjapur Road</option>
+             <option value="36">Shanti Nagar</option>
+             <option value="37">Shivaji nagar</option>
+             <option value="38">3 st. marks road</option>
+             <option value="39">Ulsoor</option>
+             <option value="40">Whitefield</option>
+             <option value="41">others</option>
+         </select>
+            <br>
+
+            <label for="rest_type">Rest_type</label>
+            <select id="mytextbox1" name = "rest_type"  required="required">
+             <option value="0">Bakery</option>
+             <option value="1">cafe</option>
+             <option value="2">Casual Dinning</option>
+             <option value="3">Casual dinning,Bar</option>
+             <option value="4">Delivery</option>
+             <option value="5">Desert parlour</option>
+             <option value="6">Quick Bites</option>
+             <option value="7">Takeaway,delivery</option>
+             <option value="8">others</option>
+            </select>
+            <br>
+
+            <label for="cuisines">Cuisines</label>
+            <select id="mytextbox1" name = "cuisines"  required="required">
+             <option value="0">Andhra</option>
+             <option value="1">Andhra, Biryani</option>
+             <option value="2">Arabian</option>
+             <option value="3">Bakery, Desserts</option>
+             <option value="4">Bakery,Fastfood</option>
+             <option value="5">Beverages</option>
+             <option value="6">Beverages, Desserts</option>
+             <option value="7">Beveragaes , Fastfood</option>
+             <option value="8">Biryani</option>
+             <option value="9"> Biryani FAst food</option>
+             <option value="10">Biryani, Kebab</option>
+             <option value="11">Biryani, North Indian</option>
+             <option value="12">Biryani, North Indian, Chinese</option>
+             <option value="13">Biryani, South Indian</option>
+             <option value="14">Burger Fast Food</option>
+             <option value="15">Cafe</option>
+             <option value="16">Cafe, Bakery</option>
+             <option value="17">Cafe Continental</option>
+             <option value="18">Cafe, Dessert</option>
+             <option value="19">Cafe, Fast food</option>
+             <option value="20">Chinese</option>
+             <option value="21">Chinese, momo</option>
+             <option value="22">Chinese North indian</option>
+             <option value="23">Chinese, thai</option>
+             <option value="24">Chinese Thai momos</option>
+             <option value="25">Continental</option>
+             <option value="26">Dessert</option>
+             <option value="27">Dessert Bakery</option>
+             <option value="28">dessert Beverages</option>
+             <option value="29">Desert IceCream</option>
+             <option value="30">Fast Food</option>
+             <option value="31">Fast food Beverages</option>
+             <option value="32">Fast Food Burger</option>
+             <option value="33">Fast Food Rolls</option>
+             <option value="34">Finger Food</option>
+             <option value="35">Ice Cream</option>
+             <option value="36">Ice cream Dessert</option>
+             <option value="37">Italian Pizza</option>
+             <option value="38">Kerala</option>
+             <option value="39">Kerala South indian</option>
+             <option value="40">Kerala South indian</option>
+             <option value="41">Mithai</option>
+             <option value="42">Mithai street food</option>
+             <option value="43">North indian</option>
+             <option value="44">North indian biryani</option>
+             <option value="45">North indian chinese</option>
+             <option value="46">North indian chinese biryani</option>
+             <option value="47">North indian chinese continental</option>
+             <option value="48">North indian chinese fast food</option>
+             <option value="49">North indian cinese sea food</option>
+             <option value="50">North Indian chinese south indian</option>
+             <option value="51">North indian continental</option>
+             <option value="52">North indian Fast food</option>
+             <option value="53">North indian mughlai</option>
+             <option value="54">North indian mughlai chinese</option>
+             <option value="55">North indian south indian</option>
+             <option value="56">North indian south indian</option>
+             <option value="57">North Indian street food</option>
+             <option value="58">Pizza</option>
+             <option value="59">Pizza Fast food</option>
+             <option value="60">South indian</option>
+             <option value="61">South indian biryani</option>
+             <option value="62">South indian chinese</option>
+             <option value="63">South indian chinese north indian</option>
+             <option value="64">Soth indian fast food</option>
+             <option value="65">South Indian North indian</option>
+             <option value="66">South indian North indian chinese</option>
+             <option value="67">South Indian North indian chinese street food</option>
+             <option value="68">Street Food</option>
+             <option value="69">Others</option>
+            </select>
+            <br>
+
+             <label for="cost2plates">Cost2Plates</label>
+             <input type="text" id="mytextbox1" name = 'cost2plates' PLACEHOLDER="Cost2Plates"  required="required">
+            <br>
+
+            <label for="Type">Type</label>
+            <select id="mytextbox1" name = "Type" required="required">
+             <option value="0">Buffet</option>
+             <option value="1">Cafes</option>
+             <option value="2">Delilvery</option>
+             <option value="3">Desserts</option>
+             <option value="4">Dine-Out</option>
+             <option value="5">Drinks & Nighlife</option>
+             <option value="6">Pubs And Bars</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block btn-large" style="color:Violet;">Submit</button></p>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+   </center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
