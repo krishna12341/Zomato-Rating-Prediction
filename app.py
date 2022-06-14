@@ -3,7 +3,6 @@ from flask import Flask, request, render_template
 import pickle
 app = Flask(__name__,template_folder='Template',static_folder='static')
 ext_model=pickle.load(open('zomato.pkl','rb'))
-@app.route('/favicon.ico',methods==['GET'])
 @app.route('/')
 def home():
    return render_template('index.html')
